@@ -1,76 +1,24 @@
-# task_manager_api
+# README
 
-A simple Ruby on Rails API to manage tasks with CRUD operations.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
----
+Things you may want to cover:
 
-## API Endpoints
+* Ruby version
 
-### 1. Create a Task
+* System dependencies
 
-- **URL:** `POST /tasks`
-- **Request Body:**
+* Configuration
 
-```json
-{
-  "title": "Buy groceries",
-  "description": "Milk, Bread, Eggs",
-  "completed": false
-}
-Response:
+* Database creation
 
-Returns the created task with its ID.
+* Database initialization
 
-2. Read Tasks
-URL: GET /tasks
+* How to run the test suite
 
-Description: Lists all tasks.
+* Services (job queues, cache servers, search engines, etc.)
 
-URL: GET /tasks/:id
+* Deployment instructions
 
-Description: Gets a single task by its ID.
-
-3. Update a Task
-URL: PUT /tasks/:id or PATCH /tasks/:id
-
-Request Body: (Only include fields to update)
-
-json
-Copy
-Edit
-{
-  "title": "Buy groceries and snacks",
-  "completed": true
-}
-Response: Returns the updated task.
-
-4. Delete a Task
-URL: DELETE /tasks/:id
-
-Description: Deletes the task with the given ID.
-
-Example Using curl
-Create
-bash
-Copy
-Edit
-curl -X POST http://localhost:3000/tasks \
--H "Content-Type: application/json" \
--d '{"title": "Test Task", "description": "My first task", "completed": false}'
-List all tasks
-bash
-Copy
-Edit
-curl http://localhost:3000/tasks
-Update task with ID 1
-bash
-Copy
-Edit
-curl -X PATCH http://localhost:3000/tasks/1 \
--H "Content-Type: application/json" \
--d '{"completed": true}'
-Delete task with ID 1
-bash
-Copy
-Edit
-curl -X DELETE http://localhost:3000/tasks/1
+* ...
