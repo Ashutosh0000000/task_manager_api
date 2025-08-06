@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: Ashupost
+  host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: task_manager_api_development
+
+test:
+  <<: *default
+  database: task_manager_api_test
+
+production:
+  <<: *default
+  database: task_manager_api_production

@@ -1,0 +1,16 @@
+/.bundle
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*
+/tmp/*
+/tmp/pids/*
+!/tmp/pids
+/storage/*
+.byebug_history
+.env
+/node_modules
+yarn-error.log
+/public/system
+coverage/
+/.idea/
+/.vscode/
