@@ -1,94 +1,76 @@
 # task_manager_api
-Task Manager API
-A simple RESTful API built with Ruby on Rails to manage tasks, including task title, description, and completion status.
 
-Features
-Create, read, update, and delete tasks
+A simple Ruby on Rails API to manage tasks with CRUD operations.
 
-Task attributes: title, description, and completed (boolean)
+---
 
-Stores timestamps for creation and updates
+## API Endpoints
 
-Getting Started
-Prerequisites
-Ruby 3.4.x
+### 1. Create a Task
 
-Rails 8.0.x
+- **URL:** `POST /tasks`
+- **Request Body:**
 
-PostgreSQL database
+```json
+{
+  "title": "Buy groceries",
+  "description": "Milk, Bread, Eggs",
+  "completed": false
+}
+Response:
 
-Setup
-Clone the repository:
+Returns the created task with its ID.
 
-bash
+2. Read Tasks
+URL: GET /tasks
+
+Description: Lists all tasks.
+
+URL: GET /tasks/:id
+
+Description: Gets a single task by its ID.
+
+3. Update a Task
+URL: PUT /tasks/:id or PATCH /tasks/:id
+
+Request Body: (Only include fields to update)
+
+json
 Copy
 Edit
-git clone https://github.com/yourusername/task_manager_api.git
-cd task_manager_api
-Install dependencies:
+{
+  "title": "Buy groceries and snacks",
+  "completed": true
+}
+Response: Returns the updated task.
 
-bash
-Copy
-Edit
-bundle install
-Setup the database:
+4. Delete a Task
+URL: DELETE /tasks/:id
 
-Make sure PostgreSQL is running, then run:
+Description: Deletes the task with the given ID.
 
-bash
-Copy
-Edit
-rails db:create
-rails db:migrate
-Start the Rails server:
-
-bash
-Copy
-Edit
-rails server
-Usage
-You can interact with the API endpoints using tools like curl, Postman, or through your frontend app.
-
-Example: Create a Task
+Example Using curl
+Create
 bash
 Copy
 Edit
 curl -X POST http://localhost:3000/tasks \
 -H "Content-Type: application/json" \
 -d '{"title": "Test Task", "description": "My first task", "completed": false}'
-Example: List Tasks
+List all tasks
 bash
 Copy
 Edit
 curl http://localhost:3000/tasks
-Database Schema
-The tasks table includes the following columns:
-
-Column	Type	Description
-id	integer	Primary key
-title	string	Task title
-description	text	Task description
-completed	boolean	Task completion status
-created_at	datetime	Timestamp for creation
-updated_at	datetime	Timestamp for last update
-
-Notes
-Make sure to check migrations for column duplication issues.
-
-Ruby warnings related to fiddle can be silenced by adding the fiddle gem to your Gemfile.
-
-If you want, I can generate a markdown file you can save directly. Would you like that?
-
-
-
-
-Ask ChatGPT
-
-
-Attach
-
-Search
-
-Voice
-
-ChatGPT can make mistakes. Check 
+Update task with ID 1
+bash
+Copy
+Edit
+curl -X PATCH http://localhost:3000/tasks/1 \
+-H "Content-Type: application/json" \
+-d '{"completed": true}'
+Delete task with ID 1
+bash
+Copy
+Edit
+curl -X DELETE http://localhost:3000/tasks/1
